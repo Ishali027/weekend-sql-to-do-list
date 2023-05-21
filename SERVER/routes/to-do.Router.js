@@ -70,7 +70,10 @@ todoRouter.put('/:id', (req, res) => {
 
 });
 
-
+todoRouter.delete('/:id', (req, res) => {
+    let idtoDelete = req.params.id;
+    let queryText = `DELETE FROM "to_do_list" WHERE "id" = $1`
+})
 
 
 
