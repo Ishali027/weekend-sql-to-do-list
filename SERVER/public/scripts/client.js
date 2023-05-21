@@ -5,7 +5,8 @@ $(document).ready(onReady);
 function onReady() {
     console.log('jQuery ready we good');
     $('#submitButton').on('click', handleSubmit);
-    $('#todo-list').on('click', '.complete-btn', choresDone)
+    $('#todo-list').on('click', '.complete-btn', choresDone);
+    $('#todo-list').on('click', '.delete-btn', choresDelete);
     getToDo();
 }
 
@@ -75,6 +76,21 @@ function choresDone() {
     $.ajax({
         method: 'PUT', 
         url: `/todo/${idtoUpdate}`
+    }).then(function (response) {
+        console.log(response);
+        getToDo();
+    }).catch(function (error) {
+        console.log(error);
+    })
+}
+
+function choresDelete (){
+    const idtoDelete = $(this).closest('tr').data('id');
+    console.log(idtoDelete);
+
+    $.ajax({
+        method: 'DELETE',
+        url: `/todo/${idtoDelete}`
     }).then(function (response) {
         console.log(response);
         getToDo();
