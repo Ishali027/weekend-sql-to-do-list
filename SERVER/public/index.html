@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <script src="vendor/jquery.js"></script>
+    <script src="scripts/client.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+<body>
+    <h1>To-Do-List</h1>
+
+
+    <section id="addTasks">
+        <h2>Add a to-do!</h2>
+        <label>To-do</label><input type="text" id="taskIn" placeholder="tasks here">
+        <button type="button" id="submitButton">Submit</button>
+    </section>
+    <h2> All To-do's</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>To-do's</th>
+            </tr>
+        </thead>
+        <tbody id="todo-list">
+
+        </tbody>
+    </table>
+    
+</body>
+</html>
