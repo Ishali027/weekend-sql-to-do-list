@@ -72,8 +72,17 @@ todoRouter.put('/:id', (req, res) => {
 
 todoRouter.delete('/:id', (req, res) => {
     let idtoDelete = req.params.id;
-    let queryText = `DELETE FROM "to_do_list" WHERE "id" = $1`
-})
+    let queryText = `DELETE FROM "to_do_list" WHERE "id" = $1`;
+    pool.query(queryText, [idtoDelete])
+        .then((result) => {
+            console.log(`todo with id ${idtoDelete} was deleted.`);
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log("Error", error)
+            res.sendStatus(500);
+        });
+});
 
 
 
