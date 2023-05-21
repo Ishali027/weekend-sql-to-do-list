@@ -87,14 +87,30 @@ function choresDone() {
 function choresDelete (){
     const idtoDelete = $(this).closest('tr').data('id');
     console.log(idtoDelete);
+    swal({
+        title: "Are you sure?",
+        text: "Are you sure you got it done??",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Damn, took you long enough!", {
+            icon: "success",
+          });
+          $.ajax({
+            method: 'DELETE',
+            url: `/todo/${idtoDelete}`
+        }).then(function (response) {
+            console.log(response);
+            getToDo();
+        }).catch(function (error) {
+            console.log(error);
+        })
+        } else {
+          swal("Your imaginary file is safe!");
+        }
+      });
 
-    $.ajax({
-        method: 'DELETE',
-        url: `/todo/${idtoDelete}`
-    }).then(function (response) {
-        console.log(response);
-        getToDo();
-    }).catch(function (error) {
-        console.log(error);
-    })
-}
+    }
