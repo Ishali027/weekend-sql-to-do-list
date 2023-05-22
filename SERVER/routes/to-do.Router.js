@@ -91,31 +91,6 @@ todoRouter.delete('/:id', (req, res) => {
 
 
 
-// todoRouter.get('/', (req, res) => {
-//     let queryText = 'SELECT * FROM "to_do_list";';
-//     pool.query(queryText)
-//     .then(result => {
-//         res.send(result.rows);
-//     })
-//     .catch(error => {
-//         console.log('Query:', queryText, 'Error:', error);
-//         res.sendStatus(500);
-//     })
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
