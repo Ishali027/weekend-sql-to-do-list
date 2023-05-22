@@ -10,10 +10,10 @@ if (process.env.DATABASE_URL) {
     });
 }
 else {
-    pool = new pg.Pool({ //the port has to correspond to what we’re using in Postico/postgreSQL
+    pool = new pg.Pool({
         host: 'localhost',
         port: 5432,
-        database: 'weekend-to-do-app',
+        database: 'prime_feedback', 
     });
 }
 
